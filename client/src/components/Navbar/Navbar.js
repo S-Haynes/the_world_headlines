@@ -7,7 +7,7 @@ class Navbar extends Component {
     return (
       <nav className={styles.Navbar}>
         <button style={{ marginRight: "10px" }} className={styles.NavButton}>
-          <i class="fas fa-search" />
+          <i className="fas fa-search" />
         </button>
         <button className={styles.NavButton}>
           Sections
@@ -22,11 +22,11 @@ class Navbar extends Component {
         <Link to="/">China</Link>
         <div className={styles.Auth}>
           <Link to="/">
-            <i class="fas fa-user-shield" />
+            <i className="fas fa-user-shield" />
             Sign in
           </Link>
           <Link to="/">
-            <i class="fas fa-user-shield" />
+            <i className="fas fa-user-shield" />
             Sign out
           </Link>
         </div>
