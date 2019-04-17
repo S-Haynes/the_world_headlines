@@ -21,14 +21,13 @@ class Navbar extends Component {
         <Link to="/">Canada</Link>
         <Link to="/">China</Link>
         <div className={styles.Auth}>
-          <Link to="/">
-            <i className="fas fa-user-shield" />
-            Sign in
-          </Link>
-          <Link to="/">
-            <i className="fas fa-user-shield" />
-            Sign out
-          </Link>
+          <button className={styles.NavButton}>
+            Login
+            <i
+              className="fas fa-user-shield"
+              style={{ fontSize: "15px", marginLeft: "8px" }}
+            />
+          </button>
         </div>
       </nav>
     );
