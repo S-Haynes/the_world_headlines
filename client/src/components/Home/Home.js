@@ -106,7 +106,7 @@ class Home extends Component {
               ) : null}
 
               {articles.length > 0 && articles[0].author !== null ? (
-                <p>{articles[0].author}</p>
+                <p>By {articles[0].author}</p>
               ) : articles.length > 0 && articles[0].author === null ? (
                 <p style={{ fontSize: "14px" }}>
                   By {articles[0].source.name}{" "}
