@@ -35,8 +35,10 @@ class Home extends Component {
         <div className={`${styles.Container} container mt-4`}>
           <div className="row">
             <div className="col-4">{date.toString().slice(0, 15)}</div>
-            <div className="col-4 text-center">Democracy Dies in Darkness</div>
-            <div className="col-4 text-right">hi</div>
+            <div className="col-4 text-center">
+              <em>Democracy Dies in Darkness</em>
+            </div>
+            <div className="col-4 text-right">Edition: U.S. & World</div>
           </div>
           <hr
             style={{
