@@ -12,7 +12,9 @@ class Home extends Component {
 
   async componentDidMount() {
     const res = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=8ce29defa950488b8d3236546046bf4e"
+      `https://newsapi.org/v2/top-headlines?country=us&${
+        process.env.REACT_APP_API_KEY
+      }`
     );
 
     const updatedArticles = res.data.articles.filter(
