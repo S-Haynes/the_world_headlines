@@ -19,3 +19,15 @@ a:hover {
     max-width: 1250px;
   }
 }
+
+@media (min-width: 993px) {
+  .Midnews {
+    border-right: 1px solid #ccc;
+  }
+}
+
+@media (min-width: 767px) {
+  .Headliner {
+    border-right: 1px solid #ccc;
+  }
+}

@@ -87,10 +87,7 @@ class Home extends Component {
             }}
           />
           <div className="row">
-            <div
-              style={{ borderRight: "1px solid #ccc" }}
-              className="col-12 col-md-6 col-lg-4"
-            >
+            <div className={`${styles.Headliner} col-12 col-md-6 col-lg-4"`}>
               {articles.length > 0 ? (
                 <Fragment>
                   <a
@@ -121,11 +118,15 @@ class Home extends Component {
                   className="img-fluid"
                 />
               ) : null}
+
+              <hr
+                style={{
+                  width: "100%",
+                  margin: "20px auto"
+                }}
+              />
             </div>
-            <div
-              style={{ borderRight: "1px solid #ccc" }}
-              className="col-12 col-md-6 col-lg-4"
-            >
+            <div className={`${styles.Midnews} col-12 col-md-6 col-lg-4`}>
               <div className="row">
                 {articles.length > 0
                   ? articles.slice(1, 4).map(article => {
