@@ -30,7 +30,7 @@ class Home extends Component {
     const { articles } = this.state;
 
     return (
-      <Fragment>
+      <div className="animated fadeIn">
         <div style={{ marginTop: "40px" }} className="container text-center">
           <Logo img={BlackLogo} width="450px" />
         </div>
@@ -89,7 +89,7 @@ class Home extends Component {
             }}
           />
           <div className="row">
-            <div className={`${styles.Headliner} col-12 col-md-6 col-lg-4"`}>
+            <div className={`${styles.Headliner} col-12 col-md-6 col-lg-4`}>
               {articles.length > 0 ? (
                 <Fragment>
                   <a
@@ -105,9 +105,11 @@ class Home extends Component {
                 </Fragment>
               ) : null}
 
-              {articles.length > 0 && articles[0].author !== null ? (
+              {articles.length > 0 &&
+              articles[0].author !== null &&
+              articles[0].author !== "" ? (
                 <p>By {articles[0].author}</p>
-              ) : articles.length > 0 && articles[0].author === null ? (
+              ) : articles.length > 0 && articles[0].source.name !== null ? (
                 <p style={{ fontSize: "14px" }}>
                   By {articles[0].source.name}{" "}
                 </p>
@@ -145,13 +147,14 @@ class Home extends Component {
                               </h5>
                             </a>
                             <p>{article.content}</p>
-                            {article.author !== null ? (
+                            {article.author !== null &&
+                            article.author !== "" ? (
                               <p>By {article.author}</p>
-                            ) : (
+                            ) : article.source.name !== null ? (
                               <p style={{ fontSize: "14px" }}>
                                 By {article.source.name}
                               </p>
-                            )}
+                            ) : null}
                           </div>
 
                           <hr
@@ -166,10 +169,52 @@ class Home extends Component {
                   : null}
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-4">hi</div>
+            <div className="col-md-12 col-lg-4">
+              <p>
+                <b>More Headlines</b>
+              </p>
+              <hr
+                style={{
+                  width: "15px",
+                  height: "2px",
+                  background: "#000",
+                  marginLeft: "35px",
+                  marginTop: "-10px"
+                }}
+              />
+
+              <div className="row">
+                {articles.length > 0
+                  ? articles.slice(4, 10).map(article => (
+                      <a
+                        key={article.url}
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <div className={`${styles.Card} col-12 row ml-4`}>
+                          <img
+                            className="img-fluid col-4"
+                            src={article.urlToImage}
+                            alt="article"
+                            style={{ minHeight: "75%", maxHeight: "75%" }}
+                          />
+                          <h1 className="col-8">
+                            {article.title
+                              .split(" ")
+                              .slice(0, 5)
+                              .join(" ")}
+                            ...
+                          </h1>
+                        </div>
+                      </a>
+                    ))
+                  : null}
+              </div>
+            </div>
           </div>
         </div>
-      </Fragment>
+      </div>
     );
   }
 }
