@@ -6,6 +6,7 @@ import Logo from "../Logo/Logo";
 import BlackLogo from "../../assets/img/newslogo.png";
 import CardList from "../Article/CardList/CardList";
 import Headliner from "../Article/Headliner/Headliner";
+import SideNewsList from "../Article/SideNewsList/SideNewsList";
 
 class Home extends Component {
   state = {
@@ -91,63 +92,28 @@ class Home extends Component {
             }}
           />
           <div className="row">
-            {articles.length > 0 ? <Headliner article={articles[0]} /> : null}
-
-            <div className={`${styles.Midnews} col-12 col-md-6 col-lg-4`}>
-              <div className="row">
-                {articles.length > 0
-                  ? articles.slice(1, 4).map(article => {
-                      return (
-                        <Fragment key={article.url}>
-                          <div className="col-12">
-                            <a
-                              href={article.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              <h5>
-                                <b>{article.title}</b>
-                              </h5>
-                            </a>
-                            <p>{article.content}</p>
-                            {article.author !== null &&
-                            article.author !== "" ? (
-                              <p>By {article.author}</p>
-                            ) : article.source.name !== null ? (
-                              <p style={{ fontSize: "14px" }}>
-                                By {article.source.name}
-                              </p>
-                            ) : null}
-                          </div>
-
-                          <hr
-                            style={{
-                              width: "90%",
-                              margin: "10px auto 20px auto"
-                            }}
-                          />
-                        </Fragment>
-                      );
-                    })
-                  : null}
-              </div>
-            </div>
-            <div className="col-md-12 col-lg-4">
-              <hr
-                style={{
-                  width: "35px",
-                  height: "3px",
-                  background: "#000",
-                  marginBottom: "2%"
-                }}
-              />
-              <p>
-                <b>More Headlines</b>
-              </p>
-              {articles.length > 0 ? (
-                <CardList articles={articles.slice(4, 10)} />
-              ) : null}
-            </div>
+            {articles.length > 0 ? (
+              <Fragment>
+                <Headliner article={articles[0]} />
+                <div className={`${styles.Midnews} col-12 col-md-6 col-lg-4`}>
+                  <SideNewsList articles={articles.slice(1, 4)} />
+                </div>
+                <div className="col-md-12 col-lg-4">
+                  <hr
+                    style={{
+                      width: "35px",
+                      height: "3px",
+                      background: "#000",
+                      marginBottom: "2%"
+                    }}
+                  />
+                  <p>
+                    <b>More Headlines</b>
+                  </p>
+                  <CardList articles={articles.slice(4, 10)} />
+                </div>
+              </Fragment>
+            ) : null}
           </div>
         </div>
       </div>
