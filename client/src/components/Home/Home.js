@@ -192,14 +192,14 @@ class Home extends Component {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <div className={`${styles.Card} col-12 row ml-4`}>
+                        <div className={`${styles.Card} col-sm-6 row ml-4`}>
                           <img
-                            className="img-fluid col-4"
+                            className="img-fluid col-5"
                             src={article.urlToImage}
                             alt="article"
                             style={{ minHeight: "75%", maxHeight: "75%" }}
                           />
-                          <h1 className="col-8">
+                          <h1 className="col-7">
                             {article.title
                               .split(" ")
                               .slice(0, 5)
