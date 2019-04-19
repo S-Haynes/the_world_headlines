@@ -14,23 +14,6 @@ a:hover {
   text-decoration: none;
 }
 
-.Card {
-  height: 125px;
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 2px #ccc;
-  margin: 10px auto;
-}
-
-.Card h1 {
-  font-size: 20px;
-  font-weight: bold;
-}
-
 @media (min-width: 1300px) {
   .Container {
     max-width: 1250px;
@@ -46,16 +29,5 @@ a:hover {
 @media (min-width: 767px) {
   .Headliner {
     border-right: 1px solid #ccc;
-  }
-}
-
-@media (max-width: 993px) {
-  .Card {
-    max-width: 300px;
-  }
-}
-@media (max-width: 767px) {
-  .Card {
-    max-width: 500px;
   }
 }

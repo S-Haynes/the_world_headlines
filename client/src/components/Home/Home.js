@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
+import styles from "./Home.css";
 
 import Logo from "../Logo/Logo";
 import BlackLogo from "../../assets/img/newslogo.png";
-import CardList from "../CardList/CardList";
-
-import styles from "./Home.css";
+import CardList from "../Article/CardList/CardList";
+import Headliner from "../Article/Headliner/Headliner";
 
 class Home extends Component {
   state = {
@@ -91,47 +91,8 @@ class Home extends Component {
             }}
           />
           <div className="row">
-            <div className={`${styles.Headliner} col-12 col-md-6 col-lg-4`}>
-              {articles.length > 0 ? (
-                <Fragment>
-                  <a
-                    href={articles[0].url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <h2>
-                      <b>{articles[0].title}</b>
-                    </h2>
-                  </a>
-                  <p>{articles[0].content}</p>
-                </Fragment>
-              ) : null}
+            {articles.length > 0 ? <Headliner article={articles[0]} /> : null}
 
-              {articles.length > 0 &&
-              articles[0].author !== null &&
-              articles[0].author !== "" ? (
-                <p>By {articles[0].author}</p>
-              ) : articles.length > 0 && articles[0].source.name !== null ? (
-                <p style={{ fontSize: "14px" }}>
-                  By {articles[0].source.name}{" "}
-                </p>
-              ) : null}
-
-              {articles.length > 0 ? (
-                <img
-                  alt="article"
-                  src={articles[0].urlToImage}
-                  className="img-fluid"
-                />
-              ) : null}
-
-              <hr
-                style={{
-                  width: "100%",
-                  margin: "20px auto"
-                }}
-              />
-            </div>
             <div className={`${styles.Midnews} col-12 col-md-6 col-lg-4`}>
               <div className="row">
                 {articles.length > 0
@@ -183,12 +144,9 @@ class Home extends Component {
               <p>
                 <b>More Headlines</b>
               </p>
-
-              <div className="row">
-                {articles.length > 0 ? (
-                  <CardList articles={articles.slice(4, 10)} />
-                ) : null}
-              </div>
+              {articles.length > 0 ? (
+                <CardList articles={articles.slice(4, 10)} />
+              ) : null}
             </div>
           </div>
         </div>
