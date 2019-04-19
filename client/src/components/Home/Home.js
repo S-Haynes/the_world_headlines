@@ -3,6 +3,8 @@ import axios from "axios";
 
 import Logo from "../Logo/Logo";
 import BlackLogo from "../../assets/img/newslogo.png";
+import CardList from "../CardList/CardList";
+
 import styles from "./Home.css";
 
 class Home extends Component {
@@ -18,7 +20,7 @@ class Home extends Component {
     );
 
     const updatedArticles = res.data.articles.filter(
-      article => (article.description || article.content) !== null
+      article => (article.description && article.content) !== null
     );
     this.setState(prevState => ({
       articles: updatedArticles
@@ -170,46 +172,22 @@ class Home extends Component {
               </div>
             </div>
             <div className="col-md-12 col-lg-4">
+              <hr
+                style={{
+                  width: "35px",
+                  height: "3px",
+                  background: "#000",
+                  marginBottom: "2%"
+                }}
+              />
               <p>
                 <b>More Headlines</b>
               </p>
-              <hr
-                style={{
-                  width: "15px",
-                  height: "2px",
-                  background: "#000",
-                  marginLeft: "35px",
-                  marginTop: "-10px"
-                }}
-              />
 
               <div className="row">
-                {articles.length > 0
-                  ? articles.slice(4, 10).map(article => (
-                      <a
-                        key={article.url}
-                        href={article.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <div className={`${styles.Card} col-sm-6 row ml-4`}>
-                          <img
-                            className="img-fluid col-5"
-                            src={article.urlToImage}
-                            alt="article"
-                            style={{ minHeight: "75%", maxHeight: "75%" }}
-                          />
-                          <h1 className="col-7">
-                            {article.title
-                              .split(" ")
-                              .slice(0, 5)
-                              .join(" ")}
-                            ...
-                          </h1>
-                        </div>
-                      </a>
-                    ))
-                  : null}
+                {articles.length > 0 ? (
+                  <CardList articles={articles.slice(4, 10)} />
+                ) : null}
               </div>
             </div>
           </div>

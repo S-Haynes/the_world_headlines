@@ -1,0 +1,38 @@
+a {
+  list-style: none;
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  list-style: none;
+  text-decoration: none;
+}
+
+.CardItem {
+  height: 125px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 2px #ccc;
+  margin: 10px auto;
+}
+
+.CardItem h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 993px) {
+  .CardItem {
+    max-width: 300px;
+  }
+}
+@media (max-width: 767px) {
+  .CardItem {
+    max-width: 500px;
+  }
+}
