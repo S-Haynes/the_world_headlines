@@ -172,7 +172,7 @@ class Home extends Component {
                           onClick={this.videoClickHandler.bind(this, video.url)}
                           className={`${styles.Video} col-12 row`}
                         >
-                          <div className="col-3">
+                          <div className="col-4">
                             <img
                               style={{ width: "100%" }}
                               className="img-fluid"
@@ -180,7 +180,7 @@ class Home extends Component {
                               alt="washington-post"
                             />
                           </div>
-                          <div className="col-9">
+                          <div className="col-8">
                             <h3>{video.snippet.title}</h3>
                             <i class="fas fa-play" />
                             <span>
