@@ -4,8 +4,13 @@ import styles from "./CardItem.css";
 
 const CardItem = ({ article }) => {
   return (
-    <a href={article.url} target="_blank" rel="noopener noreferrer">
-      <div className={`${styles.CardItem} col-sm-6 row ml-4`}>
+    <a
+      className="col-12 col-lg-6"
+      href={article.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <div className={`${styles.CardItem}  row`}>
         <img
           className="img-fluid col-5"
           src={article.urlToImage}

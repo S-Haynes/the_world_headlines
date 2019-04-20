@@ -10,27 +10,55 @@ import SideNewsList from "../Article/SideNewsList/SideNewsList";
 
 class Home extends Component {
   state = {
-    articles: []
+    articles: [],
+    video_articles: [],
+    currentVideo: ""
   };
 
   async componentDidMount() {
-    const res = await axios.get(
+    const res1Promise = axios.get(
       `https://newsapi.org/v2/top-headlines?country=us&${
         process.env.REACT_APP_API_KEY
       }`
     );
 
-    const updatedArticles = res.data.articles.filter(
+    const res2Promise = axios.get(
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCHd62-u_v4DvJ8TCFtpi4GA&maxResults=5&order=date&type=video&key=${
+        process.env.REACT_APP_YOUTUBE_KEY
+      }
+      `
+    );
+
+    const res1 = await res1Promise;
+    const res2 = await res2Promise;
+
+    const updatedVideos = res2.data.items.map(video => {
+      return {
+        ...video,
+        url: `https://www.youtube.com/embed/${video.id.videoId}`
+      };
+    });
+
+    const updatedArticles = res1.data.articles.filter(
       article => (article.description && article.content) !== null
     );
+
     this.setState(prevState => ({
-      articles: updatedArticles
+      articles: updatedArticles,
+      video_articles: updatedVideos,
+      currentVideo: updatedVideos[0].url
     }));
   }
 
+  videoClickHandler = url => {
+    this.setState(prevState => ({
+      currentVideo: `${url}?&autoplay=1`
+    }));
+  };
+
   render() {
     const date = Date(Date.now());
-    const { articles } = this.state;
+    const { articles, video_articles, currentVideo } = this.state;
 
     return (
       <div className="animated fadeIn">
@@ -92,25 +120,79 @@ class Home extends Component {
             }}
           />
           <div className="row">
-            {articles.length > 0 ? (
+            {articles.length > 0 && video_articles.length > 0 ? (
               <Fragment>
-                <Headliner article={articles[0]} />
-                <div className={`${styles.Midnews} col-12 col-md-6 col-lg-4`}>
-                  <SideNewsList articles={articles.slice(1, 4)} />
+                <div
+                  className={`${
+                    styles.SectionOne
+                  } col-12 col-md-7 col-lg-8 row mr-2`}
+                >
+                  <div className="col-12">
+                    <Headliner article={articles[0]} />
+                    <hr
+                      style={{
+                        width: "35px",
+                        height: "3px",
+                        background: "#000",
+                        marginBottom: "0.5%"
+                      }}
+                    />
+                    <p>
+                      <b>More Headlines</b>
+                    </p>
+                    <CardList articles={articles.slice(4, 10)} />
+                  </div>
                 </div>
-                <div className="col-md-12 col-lg-4">
+                <div className={` ${styles.SideNews} col-12 col-md-5 col-lg-4`}>
+                  <SideNewsList articles={articles.slice(1, 4)} />
                   <hr
                     style={{
                       width: "35px",
                       height: "3px",
                       background: "#000",
-                      marginBottom: "2%"
+                      marginBottom: "0.5%"
                     }}
                   />
                   <p>
-                    <b>More Headlines</b>
+                    <b>Video</b>
                   </p>
-                  <CardList articles={articles.slice(4, 10)} />
+                  <div className="row">
+                    <div className="col-12">
+                      <iframe
+                        width="100%"
+                        height="315"
+                        title="newsvid"
+                        src={currentVideo}
+                        className="currentVid"
+                      />
+                    </div>
+                    {video_articles.slice(1).map(video => (
+                      <Fragment>
+                        <div
+                          onClick={this.videoClickHandler.bind(this, video.url)}
+                          className={`${styles.Video} col-12 row`}
+                        >
+                          <div className="col-3">
+                            <img
+                              style={{ width: "100%" }}
+                              className="img-fluid"
+                              src={video.snippet.thumbnails.high.url}
+                              alt="washington-post"
+                            />
+                          </div>
+                          <div className="col-9">
+                            <h3>{video.snippet.title}</h3>
+                            <i class="fas fa-play" />
+                            <span>
+                              <b> Play Video</b>
+                            </span>
+                          </div>
+                        </div>
+
+                        <hr style={{ width: "100%" }} />
+                      </Fragment>
+                    ))}
+                  </div>
                 </div>
               </Fragment>
             ) : null}

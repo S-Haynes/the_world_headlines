@@ -3,7 +3,7 @@ import styles from "./Headliner.css";
 
 const Headliner = ({ article }) => {
   return (
-    <div className={`${styles.Headliner} col-12 col-md-6 col-lg-4`}>
+    <div className={styles.Headliner}>
       <a href={article.url} target="_blank" rel="noopener noreferrer">
         <h2>
           <b>{article.title}</b>
@@ -16,7 +16,12 @@ const Headliner = ({ article }) => {
       ) : article.source.name !== null ? (
         <p style={{ fontSize: "14px" }}>By {article.source.name} </p>
       ) : null}
-      <img alt="article" src={article.urlToImage} className="img-fluid" />
+      <img
+        style={{ maxHeight: "500px", minWidth: "100%" }}
+        alt="article"
+        src={article.urlToImage}
+        className="img-fluid"
+      />
       <hr
         style={{
           width: "100%",

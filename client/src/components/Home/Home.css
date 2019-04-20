@@ -14,6 +14,19 @@ a:hover {
   text-decoration: none;
 }
 
+.Video {
+  align-items: center;
+  height: 150px;
+  cursor: pointer;
+}
+
+.Video:hover {
+  background: #ddd;
+}
+
+.Video h3 {
+  font-size: 16px;
+}
 @media (min-width: 1300px) {
   .Container {
     max-width: 1250px;
@@ -21,13 +34,13 @@ a:hover {
 }
 
 @media (min-width: 993px) {
-  .Midnews {
+  .SideNews {
     border-right: 1px solid #ccc;
   }
 }
 
 @media (min-width: 767px) {
-  .Headliner {
+  .SectionOne {
     border-right: 1px solid #ccc;
   }
 }
