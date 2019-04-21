@@ -7,6 +7,7 @@ import BlackLogo from "../../assets/img/newslogo.png";
 import CardList from "../Article/CardList/CardList";
 import Headliner from "../Article/Headliner/Headliner";
 import SideNewsList from "../Article/SideNewsList/SideNewsList";
+import Subtitle from "../Element/Subtitle/Subtitle";
 
 class Home extends Component {
   state = {
@@ -75,10 +76,10 @@ class Home extends Component {
           </div>
           <hr
             style={{
+              background: "#000",
+              height: "2px",
               width: "100%",
-              margin: "0 auto",
-              background: "black",
-              height: "2px"
+              margin: "0 auto"
             }}
           />
           <div
@@ -129,33 +130,13 @@ class Home extends Component {
                 >
                   <div className="col-12">
                     <Headliner article={articles[0]} />
-                    <hr
-                      style={{
-                        width: "35px",
-                        height: "3px",
-                        background: "#000",
-                        marginBottom: "0.5%"
-                      }}
-                    />
-                    <p>
-                      <b>More Headlines</b>
-                    </p>
+                    <Subtitle title="More Headlines" />
                     <CardList articles={articles.slice(4, 10)} />
                   </div>
                 </div>
                 <div className={` ${styles.SideNews} col-12 col-md-5 col-lg-4`}>
                   <SideNewsList articles={articles.slice(1, 4)} />
-                  <hr
-                    style={{
-                      width: "35px",
-                      height: "3px",
-                      background: "#000",
-                      marginBottom: "0.5%"
-                    }}
-                  />
-                  <p>
-                    <b>Video</b>
-                  </p>
+                  <Subtitle title="Video" />
                   <div className="row">
                     <div className="col-12">
                       <iframe
