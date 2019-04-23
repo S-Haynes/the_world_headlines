@@ -8,6 +8,7 @@ import CardList from "../Article/CardList/CardList";
 import Headliner from "../Article/Headliner/Headliner";
 import SideNewsList from "../Article/SideNewsList/SideNewsList";
 import Subtitle from "../Element/Subtitle/Subtitle";
+import VideoList from "../Video/VideoList/VideoList";
 
 class Home extends Component {
   state = {
@@ -147,32 +148,11 @@ class Home extends Component {
                         className="currentVid"
                       />
                     </div>
-                    {video_articles.slice(1).map(video => (
-                      <Fragment>
-                        <div
-                          onClick={this.videoClickHandler.bind(this, video.url)}
-                          className={`${styles.Video} col-12 row`}
-                        >
-                          <div className="col-4">
-                            <img
-                              style={{ width: "100%" }}
-                              className="img-fluid"
-                              src={video.snippet.thumbnails.high.url}
-                              alt="washington-post"
-                            />
-                          </div>
-                          <div className="col-8">
-                            <h3>{video.snippet.title}</h3>
-                            <i class="fas fa-play" />
-                            <span>
-                              <b> Play Video</b>
-                            </span>
-                          </div>
-                        </div>
 
-                        <hr style={{ width: "100%" }} />
-                      </Fragment>
-                    ))}
+                    <VideoList
+                      videoClickHandler={this.videoClickHandler}
+                      videos={video_articles.slice(1)}
+                    />
                   </div>
                 </div>
               </Fragment>

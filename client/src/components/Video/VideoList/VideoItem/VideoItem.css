@@ -1,0 +1,13 @@
+.Video {
+  align-items: center;
+  height: 150px;
+  cursor: pointer;
+}
+
+.Video:hover {
+  background: #ddd;
+}
+
+.Video h3 {
+  font-size: 16px;
+}
