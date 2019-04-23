@@ -8,6 +8,7 @@ import CardList from "../Article/CardList/CardList";
 import Headliner from "../Article/Headliner/Headliner";
 import SideNewsList from "../Article/SideNewsList/SideNewsList";
 import Subtitle from "../Element/Subtitle/Subtitle";
+import Video from "../Video/Video";
 import VideoList from "../Video/VideoList/VideoList";
 
 class Home extends Component {
@@ -140,15 +141,8 @@ class Home extends Component {
                   <Subtitle title="Video" />
                   <div className="row">
                     <div className="col-12">
-                      <iframe
-                        width="100%"
-                        height="315"
-                        title="newsvid"
-                        src={currentVideo}
-                        className="currentVid"
-                      />
+                      <Video currentVideo={currentVideo} />
                     </div>
-
                     <VideoList
                       videoClickHandler={this.videoClickHandler}
                       videos={video_articles.slice(1)}
