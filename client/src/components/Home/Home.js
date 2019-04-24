@@ -10,6 +10,7 @@ import SideNewsList from "../Article/SideNewsList/SideNewsList";
 import Subtitle from "../Element/Subtitle/Subtitle";
 import Video from "../Video/Video";
 import VideoList from "../Video/VideoList/VideoList";
+import EditorNewsList from "../Article/EditorNewsList/EditorNewsList";
 
 class Home extends Component {
   state = {
@@ -26,7 +27,7 @@ class Home extends Component {
     );
 
     const res2Promise = axios.get(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCHd62-u_v4DvJ8TCFtpi4GA&maxResults=5&order=date&type=video&key=${
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCHd62-u_v4DvJ8TCFtpi4GA&maxResults=6&order=date&type=video&key=${
         process.env.REACT_APP_YOUTUBE_KEY
       }
       `
@@ -118,7 +119,7 @@ class Home extends Component {
           <hr
             style={{
               width: "100%",
-              margin: "50px auto",
+              margin: "30px auto",
               height: "2px"
             }}
           />
@@ -134,6 +135,8 @@ class Home extends Component {
                     <Headliner article={articles[0]} />
                     <Subtitle title="More Headlines" />
                     <CardList articles={articles.slice(4, 10)} />
+                    <Subtitle title="Editors' Pick" />
+                    <EditorNewsList articles={articles.slice(11, 16)} />
                   </div>
                 </div>
                 <div className={` ${styles.SideNews} col-12 col-md-5 col-lg-4`}>

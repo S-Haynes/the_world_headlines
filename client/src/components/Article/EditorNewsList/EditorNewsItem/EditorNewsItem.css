@@ -1,0 +1,21 @@
+.Article {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto 20px auto;
+}
+
+.Article h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 991px) {
+  .Article {
+    margin: 0 auto 200px auto;
+  }
+
+  .Article a {
+    margin-top: 10px;
+  }
+}

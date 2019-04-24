@@ -22,7 +22,7 @@ class Navbar extends Component {
         <Link to="/">China</Link>
         <div className={styles.Auth}>
           <button className={styles.NavButton}>
-            Login
+            Subscribe
             <i
               className="fas fa-user-shield"
               style={{ fontSize: "15px", marginLeft: "8px" }}

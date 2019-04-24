@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import CardItem from "./CardItem/CardItem";
 
 const CardList = ({ articles }) => {
@@ -6,7 +6,17 @@ const CardList = ({ articles }) => {
     <CardItem key={article.url} article={article} />
   ));
 
-  return <div className="row">{listContent}</div>;
+  return (
+    <Fragment>
+      <div className="row">{listContent}</div>
+      <hr
+        style={{
+          width: "100%",
+          margin: "20px auto"
+        }}
+      />
+    </Fragment>
+  );
 };
 
 export default CardList;

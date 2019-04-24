@@ -4,7 +4,7 @@ import styles from "./VideoItem.css";
 const VideoItem = ({ video, click }) => {
   return (
     <Fragment>
-      <div onClick={click} className={`${styles.Video} col-12 row`}>
+      <div onClick={click} className={`${styles.Video} mx-auto col-11 row`}>
         <div className="col-4">
           <img
             style={{ width: "100%" }}
@@ -14,8 +14,8 @@ const VideoItem = ({ video, click }) => {
           />
         </div>
         <div className="col-8">
-          <h3>{video.snippet.title}</h3>
-          <i class="fas fa-play" />
+          <h3>{video.snippet.title.replace(/&#39;/gi, "")}</h3>
+          <i className="fas fa-play" />
           <span>
             <b> Play Video</b>
           </span>

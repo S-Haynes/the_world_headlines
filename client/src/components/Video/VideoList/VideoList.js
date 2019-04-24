@@ -3,7 +3,11 @@ import VideoItem from "./VideoItem/VideoItem";
 
 const VideoList = ({ videos, videoClickHandler }) => {
   const content = videos.map(video => (
-    <VideoItem video={video} click={() => videoClickHandler(video.url)} />
+    <VideoItem
+      key={video.url}
+      video={video}
+      click={() => videoClickHandler(video.url)}
+    />
   ));
 
   return content;
