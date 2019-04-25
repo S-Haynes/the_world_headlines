@@ -21,7 +21,7 @@ class Home extends Component {
 
   async componentDidMount() {
     const res1Promise = axios.get(
-      `https://newsapi.org/v2/top-headlines?country=us&${
+      `https://newsapi.org/v2/top-headlines?language=en&${
         process.env.REACT_APP_API_KEY
       }`
     );
