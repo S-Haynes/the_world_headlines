@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home/Home";
 import Region from "./components/Region/Region";
@@ -11,8 +11,14 @@ class App extends Component {
     return (
       <Router>
         <Layout>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/region/:region" component={Region} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/region/:region"
+              render={props => <Region key={props.match.params.region} />}
+            />
+          </Switch>
         </Layout>
       </Router>
     );

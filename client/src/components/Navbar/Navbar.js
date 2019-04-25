@@ -17,9 +17,9 @@ class Navbar extends Component {
           />
         </button>
         <Link to="/">World</Link>
-        <Link to="/">U.S.</Link>
-        <Link to="/">Canada</Link>
-        <Link to="/">China</Link>
+        <Link to="/region/us">U.S.</Link>
+        <Link to="/region/ca">Canada</Link>
+        <Link to="/region/au">Australia</Link>
         <div className={styles.Auth}>
           <button className={styles.NavButton}>
             Subscribe
