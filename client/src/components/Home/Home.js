@@ -134,7 +134,10 @@ class Home extends Component {
                   <div className="col-12">
                     <Headliner article={articles[0]} />
                     <Subtitle title="More Headlines" />
-                    <CardList articles={articles.slice(4, 10)} />
+                    <CardList
+                      col="col-12 col-lg-6"
+                      articles={articles.slice(4, 10)}
+                    />
                     <Subtitle title="Editors' Pick" />
                     <EditorNewsList articles={articles.slice(11, 16)} />
                   </div>

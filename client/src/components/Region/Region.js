@@ -43,25 +43,7 @@ class Region extends Component {
     return (
       <Fragment>
         <div className="animated fadeIn">
-          <div style={{ marginTop: "40px" }} className="container text-center">
-            <Logo img={BlackLogo} width="450px" />
-          </div>
           <div className={`${styles.Container} container mt-4`}>
-            <div className="row">
-              <div className="col-4">{date.toString().slice(0, 15)}</div>
-              <div className="col-4 text-center">
-                <em>Democracy Dies in Darkness</em>
-              </div>
-              <div className="col-4 text-right">Edition: U.S. & World</div>
-            </div>
-            <hr
-              style={{
-                background: "#000",
-                height: "2px",
-                width: "100%",
-                margin: "0 auto"
-              }}
-            />
             <div
               style={{ width: "100%", marginTop: "10px" }}
               className="d-flex justify-content-between"
@@ -86,17 +68,11 @@ class Region extends Component {
                   })
                 : null}
             </div>
+
             <hr
               style={{
                 width: "100%",
-                margin: "5px auto",
-                height: "2px"
-              }}
-            />
-            <hr
-              style={{
-                width: "100%",
-                margin: "30px auto",
+                margin: "10px auto 30px auto",
                 height: "2px"
               }}
             />
@@ -106,21 +82,23 @@ class Region extends Component {
                   <div
                     className={`${
                       styles.SectionOne
-                    } col-12 col-md-7 col-lg-8 row mr-2`}
+                    } col-12 col-md-7 col-lg-4 row mr-2`}
                   >
                     <div className="col-12">
                       <Headliner article={articles[0]} />
-                      <Subtitle title="More Headlines" />
-                      <CardList articles={articles.slice(4, 10)} />
-                      <Subtitle title="Editors' Pick" />
-                      <EditorNewsList articles={articles.slice(11, 16)} />
                     </div>
                   </div>
                   <div
                     className={` ${styles.SideNews} col-12 col-md-5 col-lg-4`}
                   >
                     <SideNewsList articles={articles.slice(1, 4)} />
-                    <Subtitle title="Video" />
+                  </div>
+                  <div className="col-12 col-md-12 col-lg-4">
+                    <CardList col="col-12" articles={articles.slice(4, 10)} />
+                  </div>
+                  <div className="col-12">
+                    <Subtitle title="Editors' Pick" />
+                    <EditorNewsList articles={articles.slice(11, 16)} />
                   </div>
                 </Fragment>
               ) : null}

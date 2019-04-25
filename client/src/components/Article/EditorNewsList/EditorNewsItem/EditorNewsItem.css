@@ -11,8 +11,14 @@
 }
 
 @media (max-width: 991px) {
+  .Article img {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   .Article {
     margin: 0 auto 200px auto;
+    text-align: center;
   }
 
   .Article a {

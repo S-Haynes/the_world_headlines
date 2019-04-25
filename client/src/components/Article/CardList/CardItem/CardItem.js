@@ -2,10 +2,10 @@ import React from "react";
 
 import styles from "./CardItem.css";
 
-const CardItem = ({ article }) => {
+const CardItem = ({ article, col }) => {
   return (
     <a
-      className="col-12 col-lg-6"
+      className={col}
       href={article.url}
       target="_blank"
       rel="noopener noreferrer"

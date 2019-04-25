@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import CardItem from "./CardItem/CardItem";
 
-const CardList = ({ articles }) => {
+const CardList = ({ articles, col }) => {
   const listContent = articles.map(article => (
-    <CardItem key={article.url} article={article} />
+    <CardItem col={col} key={article.url} article={article} />
   ));
 
   return (
