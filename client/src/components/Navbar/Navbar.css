@@ -64,8 +64,37 @@ button.NavButton:focus,
   display: none;
 }
 
-@media (min-width: 690px) {
+.Logo {
+  max-width: 220px;
+  margin: 0 auto;
+  transition: opacity 0.5s ease;
+  color: #fff;
+  height: 100%;
+}
+
+.Logo img {
+  width: 100%;
+}
+
+.Logo p {
+  font-size: 10px;
+}
+
+.Hide {
+  opacity: 0;
+}
+
+.Show {
+  opacity: 1;
+}
+@media (min-width: 1024px) {
   .DesktopOnly {
     display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .MobileOnly {
+    display: none;
   }
 }

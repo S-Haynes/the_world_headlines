@@ -1,8 +1,20 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styles from "./Navbar.css";
+import WhiteLogo from "../../assets/img/newslogowhite.png";
 
 class Navbar extends Component {
+  state = {
+    showLogo: false
+  };
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.location.pathname !== "/") {
+      return { showLogo: true };
+    } else {
+      return { showLogo: false };
+    }
+  }
   render() {
     return (
       <nav className={styles.Navbar}>
@@ -25,6 +37,20 @@ class Navbar extends Component {
           <Link to="/region/ca">Canada</Link>
           <Link to="/region/au">Australia</Link>
         </div>
+        <div
+          className={`${styles.Logo} ${styles.MobileOnly} ${
+            this.state.showLogo ? styles.Show : styles.Hide
+          } row text-center align-items-center justify-content-center`}
+        >
+          <div className="col-12">
+            <img src={WhiteLogo} alt="brandlogo" />
+          </div>
+          <div className="col-12">
+            <p>
+              <em>Democracy Dies In Darkness</em>
+            </p>
+          </div>
+        </div>
 
         <div className={styles.Auth}>
           <button
@@ -43,4 +69,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
