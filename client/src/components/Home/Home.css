@@ -34,3 +34,9 @@ a:hover {
     border-right: 1px solid #ccc;
   }
 }
+
+@media (max-width: 767px) {
+  .DesktopOnly {
+    display: none;
+  }
+}

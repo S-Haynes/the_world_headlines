@@ -10,6 +10,30 @@
   color: #fff;
   padding-left: 20px;
   display: flex;
+  overflow: scroll;
+}
+
+.SideNav::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.SideNav::-webkit-scrollbar-track {
+  display: none;
+}
+
+/* Handle */
+.SideNav::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.SideNav::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.SideNav::-webkit-scrollbar-corner {
+  display: none;
 }
 
 .SideNavSection {

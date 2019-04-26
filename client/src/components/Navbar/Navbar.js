@@ -6,9 +6,12 @@ class Navbar extends Component {
   render() {
     return (
       <nav className={styles.Navbar}>
-        <button style={{ marginRight: "10px" }} className={styles.NavButton}>
-          <i className="fas fa-search" />
-        </button>
+        <Link style={{ height: "100%", margin: "0px" }} to="/">
+          <button style={{ marginRight: "10px" }} className={styles.NavButton}>
+            <i className="fas fa-home" />
+          </button>
+        </Link>
+
         <button onClick={this.props.regionClick} className={styles.NavButton}>
           Regions
           <i
@@ -16,10 +19,13 @@ class Navbar extends Component {
             style={{ fontSize: "15px", marginLeft: "8px" }}
           />
         </button>
-        <Link to="/">World</Link>
-        <Link to="/region/us">U.S.</Link>
-        <Link to="/region/ca">Canada</Link>
-        <Link to="/region/au">Australia</Link>
+        <div className={styles.DesktopOnly}>
+          <Link to="/">U.S.</Link>
+          <Link to="/region/br">Brazil</Link>
+          <Link to="/region/ca">Canada</Link>
+          <Link to="/region/au">Australia</Link>
+        </div>
+
         <div className={styles.Auth}>
           <button
             onClick={this.props.subscribeClick}

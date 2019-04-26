@@ -48,7 +48,9 @@ class Region extends Component {
               style={{ width: "100%", marginTop: "10px" }}
               className="d-flex justify-content-between"
             >
-              <p style={{ color: "#B25C5B" }}>In the News</p>
+              <p className={styles.DesktopOnly} style={{ color: "#B25C5B" }}>
+                In the News
+              </p>
               {articles.length > 0
                 ? articles.slice(0, 5).map(article => {
                     return (
@@ -57,6 +59,7 @@ class Region extends Component {
                         href={article.url}
                         target="_blank"
                         rel="noopener noreferrer"
+                        className={styles.DesktopOnly}
                       >
                         {article.title
                           .split(" ")

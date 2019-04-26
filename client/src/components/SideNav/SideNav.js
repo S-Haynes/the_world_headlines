@@ -21,7 +21,7 @@ class SideNav extends Component {
             }}
           />
           <ul onClick={this.props.click} className={`${styles.Link} col-12`}>
-            <Link to="/region/us">United States</Link>
+            <Link to="/">United States</Link>
             <Link to="/region/br">Brazil</Link>
             <Link to="/region/ca">Canada</Link>
             <Link to="/region/au">Australia</Link>

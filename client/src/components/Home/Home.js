@@ -21,7 +21,7 @@ class Home extends Component {
 
   async componentDidMount() {
     const res1Promise = axios.get(
-      `https://newsapi.org/v2/top-headlines?language=en&${
+      `https://newsapi.org/v2/top-headlines?country=us&${
         process.env.REACT_APP_API_KEY
       }`
     );
@@ -67,7 +67,7 @@ class Home extends Component {
     return (
       <div className={`${styles.Home} animated fadeIn`}>
         <div style={{ marginTop: "40px" }} className="container text-center">
-          <Logo img={BlackLogo} width="450px" />
+          <Logo img={BlackLogo} />
         </div>
         <div className={`${styles.Container} container mt-4`}>
           <div className="row">
@@ -89,7 +89,9 @@ class Home extends Component {
             style={{ width: "100%", marginTop: "10px" }}
             className="d-flex justify-content-between"
           >
-            <p style={{ color: "#B25C5B" }}>In the News</p>
+            <p className={styles.DesktopOnly} style={{ color: "#B25C5B" }}>
+              In the News
+            </p>
             {articles.length > 0
               ? articles.slice(0, 5).map(article => {
                   return (
@@ -98,6 +100,7 @@ class Home extends Component {
                       href={article.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className={styles.DesktopOnly}
                     >
                       {article.title
                         .split(" ")

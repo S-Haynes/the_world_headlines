@@ -59,3 +59,13 @@ button.NavButton:focus,
   background: #000;
   border: 1px solid #fff;
 }
+
+.DesktopOnly {
+  display: none;
+}
+
+@media (min-width: 690px) {
+  .DesktopOnly {
+    display: block;
+  }
+}
