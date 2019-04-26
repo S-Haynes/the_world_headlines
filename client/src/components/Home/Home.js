@@ -65,7 +65,7 @@ class Home extends Component {
     const { articles, video_articles, currentVideo } = this.state;
 
     return (
-      <div className="animated fadeIn">
+      <div className={`${styles.Home} animated fadeIn`}>
         <div style={{ marginTop: "40px" }} className="container text-center">
           <Logo img={BlackLogo} width="450px" />
         </div>

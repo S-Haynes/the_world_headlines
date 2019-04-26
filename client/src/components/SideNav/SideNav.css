@@ -1,0 +1,51 @@
+.SideNav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 27vw;
+  height: 100%;
+  z-index: 2;
+  background: #333;
+  transition: transform 0.5s ease;
+  color: #fff;
+  padding-left: 20px;
+  display: flex;
+}
+
+.SideNavSection {
+  margin-top: 10vh;
+}
+
+.SideNavSection h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.Link {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.Link a {
+  color: #ccc;
+  margin: 6px 0px;
+}
+
+.Link a:hover {
+  color: #fff;
+}
+
+.Hide {
+  transform: translateX(-100%);
+}
+.Show {
+  transform: translateX(0%);
+}
+
+@media (max-width: 1024px) {
+  .SideNav {
+    width: 100vw;
+  }
+}

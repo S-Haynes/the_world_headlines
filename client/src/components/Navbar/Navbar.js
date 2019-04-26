@@ -9,8 +9,8 @@ class Navbar extends Component {
         <button style={{ marginRight: "10px" }} className={styles.NavButton}>
           <i className="fas fa-search" />
         </button>
-        <button className={styles.NavButton}>
-          Sections
+        <button onClick={this.props.regionClick} className={styles.NavButton}>
+          Regions
           <i
             className="fas fa-bars"
             style={{ fontSize: "15px", marginLeft: "8px" }}
@@ -21,7 +21,10 @@ class Navbar extends Component {
         <Link to="/region/ca">Canada</Link>
         <Link to="/region/au">Australia</Link>
         <div className={styles.Auth}>
-          <button className={styles.NavButton}>
+          <button
+            onClick={this.props.subscribeClick}
+            className={styles.NavButton}
+          >
             Subscribe
             <i
               className="fas fa-user-shield"

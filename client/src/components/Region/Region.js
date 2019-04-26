@@ -42,7 +42,7 @@ class Region extends Component {
 
     return (
       <Fragment>
-        <div className="animated fadeIn">
+        <div className={`${styles.Region} animated fadeIn`}>
           <div className={`${styles.Container} container mt-4`}>
             <div
               style={{ width: "100%", marginTop: "10px" }}
