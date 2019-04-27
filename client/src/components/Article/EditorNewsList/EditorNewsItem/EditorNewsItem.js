@@ -1,16 +1,16 @@
 import React from "react";
 import styles from "./EditorNewsItem.css";
 
-const EditorNewsItem = ({ article }) => {
+const EditorNewsItem = ({ article, imgClasses, textClasses }) => {
   return (
     <div className={`${styles.Article} col-12 row`}>
       <img
-        style={{ minHeight: "75%", maxHeight: "75%" }}
-        className="img-fluid col-sm-12 col-lg-4"
+        style={{ minHeight: "150px", maxHeight: "200px" }}
+        className={imgClasses}
         src={article.urlToImage}
         alt="article"
       />
-      <div className="col-sm-12 col-lg-8 row">
+      <div className={textClasses}>
         <a
           className="col-12"
           href={article.url}

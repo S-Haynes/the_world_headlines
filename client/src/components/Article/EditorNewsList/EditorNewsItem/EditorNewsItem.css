@@ -1,8 +1,8 @@
 .Article {
-  height: 200px;
+  height: inherit;
   display: flex;
   align-items: center;
-  margin: 0 auto 20px auto;
+  margin: auto;
 }
 
 .Article h1 {
@@ -11,16 +11,6 @@
 }
 
 @media (max-width: 991px) {
-  .Article img {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .Article {
-    margin: 0 auto 200px auto;
-    text-align: center;
-  }
-
   .Article a {
     margin-top: 10px;
   }

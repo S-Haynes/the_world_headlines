@@ -107,7 +107,11 @@ class Category extends Component {
                   </div>
                   <div className="col-12">
                     <Subtitle title="Editors' Pick" />
-                    <EditorNewsList articles={articles.slice(11, 16)} />
+                    <EditorNewsList
+                      textClasses="row col-sm-12 col-md-7 col-lg-9"
+                      imgClasses="img-fluid col-sm-8 col-md-4 col-lg-3"
+                      articles={articles.slice(11, 16)}
+                    />
                   </div>
                 </Fragment>
               ) : null}

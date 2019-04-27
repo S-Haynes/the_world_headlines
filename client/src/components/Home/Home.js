@@ -142,7 +142,11 @@ class Home extends Component {
                       articles={articles.slice(4, 10)}
                     />
                     <Subtitle title="Editors' Pick" />
-                    <EditorNewsList articles={articles.slice(11, 16)} />
+                    <EditorNewsList
+                      textClasses="col-sm-12 col-lg-8 row"
+                      imgClasses="img-fluid col-sm-9 col-lg-4"
+                      articles={articles.slice(11, 16)}
+                    />
                   </div>
                 </div>
                 <div className={` ${styles.SideNews} col-12 col-md-5 col-lg-4`}>
