@@ -5,12 +5,15 @@ const EditorNewsItem = ({ article, imgClasses, textClasses }) => {
   return (
     <div className={`${styles.Article} col-12 row`}>
       <img
-        style={{ minHeight: "150px", maxHeight: "200px" }}
+        style={{ minHeight: "175px", maxHeight: "175px", paddingLeft: "0px" }}
         className={imgClasses}
         src={article.urlToImage}
         alt="article"
       />
-      <div className={textClasses}>
+      <div
+        style={{ paddingLeft: "0px" }}
+        className={`${textClasses} ${styles.NoPadding}`}
+      >
         <a
           className="col-12"
           href={article.url}
