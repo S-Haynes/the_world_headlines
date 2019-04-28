@@ -1,0 +1,44 @@
+.Subscribe {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: 60vh;
+  max-width: 500px;
+  max-height: 500px;
+  background: rgba(0, 0, 0, 0.9);
+  margin: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1000000;
+  padding: 30px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Subscribe h4 {
+  color: white;
+  margin-bottom: 50px;
+}
+
+.Subscribe input {
+  outline: none !important;
+  box-shadow: none !important;
+  background: #ccc !important;
+  height: 60px;
+  font-size: 40px;
+  max-width: 90%;
+  margin: auto;
+}
+
+@media (max-width: 1024px) {
+  .Subscribe {
+    width: 80vw;
+    height: 60vh;
+  }
+
+  .Subscribe input {
+    font-size: 20px;
+  }
+}
