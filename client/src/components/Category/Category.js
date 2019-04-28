@@ -3,14 +3,10 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 import styles from "./Category.css";
 
-import Logo from "../Logo/Logo";
-import BlackLogo from "../../assets/img/newslogo.png";
 import CardList from "../Article/CardList/CardList";
 import Headliner from "../Article/Headliner/Headliner";
 import SideNewsList from "../Article/SideNewsList/SideNewsList";
 import Subtitle from "../Element/Subtitle/Subtitle";
-import Video from "../Video/Video";
-import VideoList from "../Video/VideoList/VideoList";
 import EditorNewsList from "../Article/EditorNewsList/EditorNewsList";
 
 class Category extends Component {
@@ -37,7 +33,6 @@ class Category extends Component {
     }));
   }
   render() {
-    const date = Date(Date.now());
     const { articles } = this.state;
     const { category } = this.props.match.params;
 
